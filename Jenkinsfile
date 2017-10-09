@@ -5,7 +5,7 @@ pipeline {
       steps {
         git(url: 'https://github.com/ram-devops/mvnrepo.git', branch: 'master')
         sh 'mvn clean compile package deploy'
-        sh 'echo0 URL=`cat /var/lib/jenkins/jobs/ram-devops/jobs/final-pipe.f4038p/branches/master/builds/$BUILD_ID/log| grep Uploading |grep war | awk \'{print $2}\'`>/tmp/env'
+        sh 'echo URL=`cat /var/lib/jenkins/jobs/ram-devops/jobs/final-pipe.f4038p/branches/master/builds/$BUILD_ID/log| grep Uploading |grep war | awk \'{print $2}\'`>/tmp/env'
       }
     }
     stage('Deploy DEV') {
