@@ -8,5 +8,10 @@ pipeline {
         sh 'export URL=`cat /var/lib/jenkins/jobs/ram-devops/jobs/final-pipe.f4038p/branches/master/builds/$BUILD_ID/log| grep Uploading |grep war | awk \'{print $2}\'`'
       }
     }
+    stage('Deploy DEV') {
+      steps {
+        build 'rundeck_input'
+      }
+    }
   }
 }
