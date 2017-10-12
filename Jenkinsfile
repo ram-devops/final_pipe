@@ -24,7 +24,7 @@ fi
     }
     stage('Approval') {
       steps {
-        emailext(subject: 'Need Approval', body: '$BUILD_URL', to: 'admin@localhost')
+        emailext(subject: 'Need Approval', body: '$BUILD_URL', to: 'root@localhost')
       }
     }
   }
