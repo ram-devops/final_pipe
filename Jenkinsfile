@@ -22,5 +22,10 @@ fi
 '''
       }
     }
+    stage('Approval') {
+      steps {
+        emailext(subject: 'Need Approval', body: '$BUILD_URL', to: 'admin@localhost')
+      }
+    }
   }
 }
