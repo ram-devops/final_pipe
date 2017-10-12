@@ -13,5 +13,14 @@ pipeline {
         build 'rundeck_input'
       }
     }
+    stage('QA') {
+      steps {
+        sh '''curl -s http://35.193.100.76:8080/student/ |grep "First ame"
+if [ $? -ne 0 ]; then
+exit 1
+fi
+'''
+      }
+    }
   }
 }
