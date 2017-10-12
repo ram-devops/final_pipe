@@ -25,6 +25,7 @@ fi
     stage('Approval') {
       steps {
         emailext(subject: 'Need Approval', body: '$BUILD_URL', to: 'root@localhost')
+        input 'Do you want to deploy to PROD?'
       }
     }
   }
